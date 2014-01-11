@@ -1,0 +1,65 @@
+<div class="container">
+<p>
+  <b>No:</b>
+  <%= @purchase.id %>
+</p>
+<p>
+  <b>Contact:</b>
+  <%= @purchase.contact.name %>
+</p>
+<p>
+  <b>Stone Type:</b>
+  <%= @purchase.stone_type %>
+</p>
+<p>
+  <b>Sub Type:</b>
+  <%= @purchase.sub_type %>
+</p>
+<p>
+  <b>Shape:</b>
+  <%= @purchase.shape %>
+</p>
+<p>
+  <b>Piece:</b>
+  <%= @purchase.piece %>
+</p>
+<p>
+  <b>Net Weight:</b>
+  <%= @purchase.net_weight %>
+</p>
+<p>
+  <b>Purchase Price:</b>
+  <%= @purchase.purchase_price %>
+</p>
+<p>
+  <b>Length:</b>
+  <%= @purchase.length %>
+</p>
+<p>
+  <b>Breadth:</b>
+  <%= @purchase.breadth %>
+</p>
+<p>
+  <b>Sarafa Weight:</b>
+  <%= @purchase.sarafa_weight %>
+</p>
+<p>
+  <b>Gross Weight:</b>
+  <%= @purchase.gross_weight %>
+</p>
+<p>
+  <b>Discount:</b>
+  <%= @purchase.discount %>
+</p>
+<p>
+  <b>Due Date:</b>
+  <%= @purchase.due_date %>
+</p>
+<p>
+  <b>Remarks:</b>
+  <%= @purchase.remarks %>
+</p>
+
+<%= link_to "Edit Purchase", edit_purchase_path(@purchase) %>
+<%= link_to "Delete Purchase", purchase_path(@purchase), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+</div>

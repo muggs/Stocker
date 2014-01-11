@@ -1,0 +1,75 @@
+<div class="container">
+<h2> Order for Customer : <%= @order.contact.name %> </h2>
+<%= nested_form_for((@order), :html => { :class => "form-inline"}) do |f| %>
+  <div class="field">
+    <%= f.hidden_field :contact_id %>
+  </div>
+  <div class="field">
+    <%= f.label :order_date %><br />
+    <%= f.date_select :order_date %>
+  </div>
+  <div class="field">
+    <%= f.label :order_type %><br />
+    <%= f.select :order_type, @order_type %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br />
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </div>
+ 	<div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_field :remarks %>
+  </div>
+  
+  <h3> Details </h3>
+		<table class="table table-striped">  
+			<thead>  
+				<tr>  
+					<th>Stock No</th>
+					<th>Piece</th>
+					<th>Net Weight</th>  
+					<th>Price per ct</th>  
+					<th>Remarks</th>
+					<th>Remove</th>
+				</tr>  
+			</thead>  
+			<tbody>
+				<%= f.fields_for :order_details, :wrapper => false do |item| %>
+					<tr class="fields">
+						<td><%= item.hidden_field :id %><%= item.collection_select :stock_id, Stock.all, :id, :stock_no %></td>
+						<td><%= item.text_field :piece %></td>                                                   
+						<td><%= item.text_field :net_weight %></td>
+						<td><%= item.text_field :sell_price %></td>
+						<td><%= item.text_field :remarks %></td>	
+						<td><%= item.link_to_remove "Remove Item" %></td>
+					</tr>
+				<% end %>				
+			</tbody>	
+		</table> 
+		<%= f.link_to_add "Add Item", :order_details %>
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<% if @order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+    <ul>
+    <% @order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
+<script>
+
+</script>

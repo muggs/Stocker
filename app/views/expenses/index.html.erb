@@ -1,0 +1,30 @@
+<div class="container">
+<h2> Expense Dashboard </h2>
+<ul>
+  <table class="table table-striped">  
+    <thead>  
+      <tr>  
+        <th>Expense Type</th>  
+        <th>City</th>  
+        <th>State</th>  
+        <th>Amount</th>
+      </tr>  
+    </thead>  
+    <tbody>
+    	<% @expenses.each do |expense| %>  
+      <tr>  
+        <td><%= expense.expense_type %></td>
+        <td><%= expense.city %></td>
+        <td><%= expense.state %></td>
+        <td><%= expense.amount %></td>
+        <td><%= link_to 'Show', expense %> |
+    		<%= link_to 'Edit', edit_expense_path(expense) %> |
+    		<%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> 
+      <% end %>  
+    </tbody>  
+ 	</table> 
+</ul>
+<%= link_to "Add New Expense", new_expense_path %>
+<%= link_to "Home", pages_index_path %>
+</div>

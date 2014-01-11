@@ -1,0 +1,88 @@
+<div class="container">
+<p>
+  <b>Purchase No:</b>
+  <%= @purchase.id %>
+</p>
+<p>
+  <b>Customer:</b>
+  <%= @purchase.contact.name %>
+</p>
+<p>
+  <b>Stone Type:</b>
+  <%= @purchase.stone_type %>
+</p>
+<p>
+  <b>Sub Type:</b>
+  <%= @purchase.sub_type %>
+</p>
+<p>
+  <b>Shape:</b>
+  <%= @purchase.shape %>
+</p>
+<p>
+  <b>Piece:</b>
+  <%= @purchase.piece %>
+</p>
+<p>
+  <b>Net Weight:</b>
+  <%= @purchase.net_weight %>
+</p>
+<p>
+  <b>Purchase Price:</b>
+  <%= @purchase.purchase_price %>
+</p>
+<p>
+  <b>Length:</b>
+  <%= @purchase.length %>
+</p>
+<p>
+  <b>Breadth:</b>
+  <%= @purchase.breadth %>
+</p>
+<p>
+  <b>Sarafa Weight:</b>
+  <%= @purchase.sarafa_weight %>
+</p>
+<p>
+  <b>Gross Weight:</b>
+  <%= @purchase.gross_weight %>
+</p>
+<p>
+  <b>Due Date:</b>
+  <%= @purchase.due_date %>
+</p>
+<p>
+  <b>Discount:</b>
+  <%= @purchase.discount %>
+</p>
+<p>
+  <b>Remarks:</b>
+  <%= @purchase.remarks %>
+</p>
+
+<h3> Details </h3>
+	<table class="table table-striped">  
+		<thead>  
+			<tr>  
+				<th>Stock No</th>
+				<th>Piece</th>
+				<th>Net Weight</th>    
+				<th>Remarks</th>
+			</tr>  
+		</thead>  
+		<tbody>
+			<% @purchase_stock.each do |item| %>
+				<tr class="fields">
+					<td><%= item.stock.stock_no %></td>
+					<td><%= item.piece %></td>                                                   
+					<td><%= item.net_weight %></td>
+					<td><%= item.remarks %></td>	
+				</tr>
+			<% end %>
+		</tbody>  
+	</table> 
+
+<%= link_to "Edit Purchase Stock", edit_purchase_stock_path(@purchase) %>
+<%= link_to 'Back', :back %>
+<%= link_to 'Home', pages_index_path %>
+</div>

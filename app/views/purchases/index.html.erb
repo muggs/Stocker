@@ -1,0 +1,55 @@
+<div class="container">
+<h2> Purchases from Supplier : </h2>
+<ul>
+  <table class="table table-striped">  
+    <thead>  
+      <tr>  
+        <th>Purchase ID</th>  
+        <th>Stone Type</th>  
+        <th>Sub Type</th>  
+        <th>Shape</th>
+        <th>Piece</th>
+        <th>Net Weight</th>
+        <th>Puchase Price</th>
+        <th>Length</th>
+        <th>Breadth</th>
+        <th>Sarafa Weight</th>
+        <th>Gross Weight</th>
+        <th>Discount</th>
+        <th>Due Date</th>
+        <th>Remarks</th>
+        <th>Updated At</th>
+      </tr>  
+    </thead>  
+    <tbody>
+    	<% @purchases.each do |purchase| %>  
+      <tr>  
+        <td><%= purchase.id %></td>
+        <td><%= purchase.stone_type %></td>
+        <td><%= purchase.sub_type %></td>
+        <td><%= purchase.shape %></td>
+        <td><%= purchase.piece %></td>
+        <td><%= purchase.net_weight %></td>
+        <td><%= purchase.purchase_price %></td>
+        <td><%= purchase.length %></td>
+        <td><%= purchase.breadth %></td>
+        <td><%= purchase.sarafa_weight %></td>
+        <td><%= purchase.gross_weight %></td>
+        <td><%= purchase.discount %></td>
+        <td><%= purchase.due_date %></td>
+        <td><%= purchase.remarks %></td>
+        <td><%= purchase.updated_at %></td>
+        <td><%= link_to 'Show', purchase %> |
+    		<%= link_to 'Edit', edit_purchase_path(purchase) %> |
+    		<%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    		<%=	link_to	'Show Related Stock', purchase_stock_path(purchase) %> |
+    		<%=	link_to	'Edit Related Stock', edit_purchase_stock_path(purchase) %>
+    		</td>
+        </tr> 
+      <% end %>  
+    </tbody>  
+ 	</table> 
+</ul>
+<%= link_to 'Back', :back %>
+<%= link_to 'Home', pages_index_path %>
+</div>

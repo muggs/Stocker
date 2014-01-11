@@ -1,0 +1,38 @@
+<div class="container">
+<h2> Orders from Customer : </h2>
+<ul>
+  <table class="table table-striped">  
+    <thead>  
+      <tr>  
+        <th>Order ID</th>
+        <th>Order Date</th>
+        <th>Customer</th>
+        <th>Due Date</th>
+        <th>Discount</th>
+        <th>Order Type</th>
+        <th>Remarks</th>  
+        <th>Updated At</th>
+      </tr>  
+    </thead>  
+    <tbody>
+    	<% @orders.each do |order| %>  
+      <tr>  
+        <td><%= order.id %></td>
+        <td><%= order.order_date %></td>
+        <td><%= order.contact.name %></td>
+        <td><%= order.due_date %></td>
+        <td><%= order.discount %></td>
+        <td><%= order.order_type %></td>
+        <td><%= order.remarks %></td>
+        <td><%= order.updated_at %></td>
+        <td><%= link_to 'Show', order %> |
+    		<%= link_to 'Edit', edit_order_path(order) %> |
+    		<%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> 
+      <% end %>  
+    </tbody>  
+ 	</table> 
+</ul>
+<%= link_to 'Back', :back %>
+<%= link_to 'Home', pages_index_path %>
+</div>

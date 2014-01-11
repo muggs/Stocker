@@ -1,0 +1,57 @@
+<div class="container">
+<p>
+  <b>Stock ID:</b>
+  <%= @stock.id %>
+</p>
+<p>
+  <b>Stock No:</b>
+  <%= @stock.stock_no %>
+</p>
+<p>
+  <b>Stone Type:</b>
+  <%= @stock.stone_type %>
+</p>
+<p>
+  <b>Sub Type:</b>
+  <%= @stock.sub_type %>
+</p>
+<p>
+  <b>Shape:</b>
+  <%= @stock.shape %>
+</p>
+<p>
+  <b>Piece:</b>
+  <%= @stock.piece %>
+</p>
+<p>
+  <b>Net Weight:</b>
+  <%= @stock.net_weight %>
+</p>
+<p>
+  <b>Cost Price:</b>
+  <%= @stock.cost_price %>
+</p>
+<p>
+  <b>Sell Price:</b>
+  <%= @stock.sell_price %>
+</p>
+<p>
+  <b>Length x Breadth:</b>
+  <%= @stock.length %> x <%= @stock.breadth %>
+</p>
+<p>
+  <b>Sarafa Weight:</b>
+  <%= @stock.sarafa_weight %>
+</p>
+<p>
+  <b>Gross Weight:</b>
+  <%= @stock.gross_weight %>
+</p>
+<p>
+  <b>Remarks:</b>
+  <%= @stock.remarks %>
+</p>
+
+<%= link_to "Edit Stock", edit_stock_path(@stock) %>
+<%= link_to "Delete Stock", stock_path(@stock), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+<h1>Welcome to Kushal Gems</h1>
+<p>Please navigate through menu to enter and extract the details of Customers, Suppliers, Stocks and Purchase</p>
+</div>
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav">
+				<li><%= link_to "Supplier -> Add Supplier", {:controller => "contacts", :action => "new", :contact_type => "Supplier"} %></li>
+				<li><%= link_to "Supplier -> Search", {:controller => "suppliers", :action => "index"} %></li>
+				<li><%= link_to "Customer -> Add Customer", {:controller => "contacts", :action => "new", :contact_type => "Customer"} %></li>
+				<li><%= link_to "Customer -> Search", {:controller => "customers", :action => "index"} %></li>
+				<li><%= link_to "Expense -> Add Expense", {:controller => "expenses", :action => "new"} %></li>
+				<li><%= link_to "Expense -> Search", {:controller => "expenses", :action => "index"} %></li>
+				<li><%= link_to "Stock -> Add Stock", {:controller => "stocks", :action => "new"} %></li>
+				<li><%= link_to "Stock -> Search", {:controller => "stocks", :action => "index"} %></li>
+			</ul>
+		</div>
+	</div>
+</div>

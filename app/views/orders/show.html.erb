@@ -1,0 +1,59 @@
+<div class="container">
+<p>
+  <b>Order No:</b>
+  <%= @order.id %>
+</p>
+<p>
+  <b>Customer:</b>
+  <%= @order.contact.name %>
+</p>
+<p>
+  <b>Order Date:</b>
+  <%= @order.order_date %>
+</p>
+<p>
+  <b>Due Date:</b>
+  <%= @order.due_date %>
+</p>
+<p>
+  <b>Discount:</b>
+  <%= @order.discount %>
+</p>
+<p>
+  <b>Order Type:</b>
+  <%= @order.order_type %>
+</p>
+<p>
+  <b>Remarks:</b>
+  <%= @order.remarks %>
+</p>
+
+<h3> Details </h3>
+	<table class="table table-striped">  
+		<thead>  
+			<tr>  
+				<th>Stock No</th>
+				<th>Piece</th>
+				<th>Net Weight</th>  
+				<th>Price per ct</th>  
+				<th>Remarks</th>
+			</tr>  
+		</thead>  
+		<tbody>
+			<% @order_detail.each do |item| %>
+				<tr class="fields">
+					<td><%= item.stock.stock_no %></td>
+					<td><%= item.piece %></td>                                                   
+					<td><%= item.net_weight %></td>
+					<td><%= item.sell_price %></td>
+					<td><%= item.remarks %></td>	
+				</tr>
+			<% end %>
+		</tbody>  
+	</table> 
+
+<%= link_to "Edit Order", edit_order_path(@order) %>
+<%= link_to "Delete Order", order_path(@order), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+<%= link_to 'Back', :back %>
+<%= link_to 'Home', pages_index_path %>
+</div>

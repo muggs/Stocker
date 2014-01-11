@@ -1,0 +1,41 @@
+<div class="container">
+<h2> Sale from Customer : </h2>
+<ul>
+  <table class="table table-striped">  
+    <thead>  
+      <tr>  
+        <th>Sale ID</th>  
+        <th>Stone Type</th>  
+        <th>Sub Type</th>  
+        <th>Shape</th>
+        <th>Piece</th>
+        <th>Net Weight</th>
+        <th>sale Price</th>
+        <th>Discount</th>
+        <th>Due Date</th>
+        <th>Remarks</th>
+        <th>Sale Type</th>
+        <th>Updated At</th>
+      </tr>  
+    </thead>  
+    <tbody>
+    	<% @sales.each do |sale| %>  
+      <tr>  
+        <td><%= sale.id %></td>
+        <td><%= sale.stock.stone_type %></td>
+        <td><%= sale.stock.sub_type %></td>
+        <td><%= sale.stock.shape %></td>
+        <td><%= sale.piece %></td>
+        <td><%= sale.net_weight %></td>
+        <td><%= sale.sale_price %></td>
+        <td><%= sale.discount %></td>
+        <td><%= sale.due_date %></td>
+        <td><%= sale.remarks %></td>
+        <td><%= sale.sale_type %></td>
+        <td><%= sale.updated_at %></td>
+        </tr> 
+      <% end %>  
+    </tbody>  
+ 	</table> 
+</ul>
+</div>

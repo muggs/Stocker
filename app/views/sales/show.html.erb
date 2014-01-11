@@ -1,0 +1,57 @@
+<div class="container">
+<p>
+  <b>No:</b>
+  <%= @sale.id %>
+</p>
+<p>
+  <b>Contact:</b>
+  <%= @sale.contact.name %>
+</p>
+<p>
+  <b>Stock Id:</b>
+  <%= @sale.stock.id %>
+</p>
+<p>
+  <b>Stone Type:</b>
+  <%= @sale.stock.stone_type %>
+</p>
+<p>
+  <b>Sub Type:</b>
+  <%= @sale.stock.sub_type %>
+</p>
+<p>
+  <b>Shape:</b>
+  <%= @sale.stock.shape %>
+</p>
+<p>
+  <b>Piece:</b>
+  <%= @sale.piece %>
+</p>
+<p>
+  <b>Net Weight:</b>
+  <%= @sale.net_weight %>
+</p>
+<p>
+  <b>Sale Price:</b>
+  <%= @sale.sale_price %>
+</p>
+<p>
+  <b>Discount:</b>
+  <%= @sale.discount %>
+</p>
+<p>
+  <b>Due Date:</b>
+  <%= @sale.due_date %>
+</p>
+<p>
+  <b>Remarks:</b>
+  <%= @sale.remarks %>
+</p>
+<p>
+  <b>Sale Type:</b>
+  <%= @sale.sale_type %>
+</p>
+
+<%= link_to "Edit Sale", edit_sale_path(@sale) %>
+<%= link_to "Delete Sale", sale_path(@sale), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+</div>

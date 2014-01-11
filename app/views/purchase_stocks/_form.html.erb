@@ -1,0 +1,103 @@
+<div class="container">
+<% @purchase.inspect %>
+<h2> Purchase for Supplier : <%= @purchase.contact.name %> </h2>
+<%= nested_form_for((@purchase), :html => { :class => "form-inline"}) do |f| %>
+ 	<div class="field">
+    <%= f.hidden_field :contact_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stone_type %><br />
+    <%= f.text_field :stone_type %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_type %><br />
+    <%= f.text_field :sub_type %>
+  </div>
+  <div class="field">
+    <%= f.label :shape %><br />
+    <%= f.text_field :shape %>
+  </div>
+  <div class="field">
+    <%= f.label :piece %><br />
+    <%= f.text_field :piece %>
+  </div>
+  <div class="field">
+    <%= f.label :net_weight %><br />
+    <%= f.text_field :net_weight %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_price %><br />
+    <%= f.text_field :purchase_price %>
+  </div>  
+  <div class="field">
+    <%= f.label :length %><br />
+    <%= f.text_field :length %>
+  </div>  
+  <div class="field">
+    <%= f.label :breadth %><br />
+    <%= f.text_field :breadth %>
+  </div>  
+  <div class="field">
+    <%= f.label :sarafa_weight %><br />
+    <%= f.text_field :sarafa_weight %>
+  </div>  
+  <div class="field">
+    <%= f.label :gross_weight %><br />
+    <%= f.text_field :gross_weight %>
+  </div>  
+  <div class="field">
+    <%= f.label :due_date %><br />
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </div>
+ 	<div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_field :remarks %>
+  </div> 
+  <h3> Details </h3>
+		<table class="table table-striped">  
+			<thead>  
+				<tr>  
+					<th>Stock No</th>
+					<th>Piece</th>
+					<th>Net Weight</th>    
+					<th>Remarks</th>
+					<th>Remove</th>
+				</tr>  
+			</thead>  
+			<tbody>
+				<%= f.fields_for :purchase_stocks, :wrapper => false do |item| %>
+					<tr class="fields">
+						<td><%= item.hidden_field :id %><%= item.collection_select :stock_id, Stock.all, :id, :stock_no %></td>
+						<td><%= item.text_field :piece %></td>                                                   
+						<td><%= item.text_field :net_weight %></td>
+						<td><%= item.text_field :remarks %></td>	
+						<td><%= item.link_to_remove "Remove Item" %></td>
+					</tr>
+				<% end %>				
+			</tbody>	
+		</table> 
+		<%= f.link_to_add "Add Item", :purchase_stocks %>
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<% if @purchase.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this Purchase-Stock from being saved:</h2>
+
+    <ul>
+    <% @purchase.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
+

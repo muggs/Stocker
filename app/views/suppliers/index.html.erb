@@ -1,0 +1,40 @@
+<div class="container">
+<h2> Supplier Dashboard </h2>
+<%= form_tag suppliers_index_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<ul>
+  <table class="table table-striped">  
+    <thead>  
+      <tr>  
+        <th>Supplier ID</th>  
+        <th>Supplier Name</th>  
+        <th>Company</th>  
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>  
+      </tr>  
+    </thead>  
+    <tbody>
+    	<% @suppliers.each do |supplier| %>  
+      <tr>  
+        <td><%= supplier.id %></td>
+        <td><%= supplier.name %></td>
+        <td><%= supplier.company %></td>
+        <td><%= supplier.city %></td>
+        <td><%= supplier.state %></td>
+        <td><%= supplier.country %></td>
+        <td><%= link_to 'Show', supplier %> |
+    		<%= link_to 'Edit', edit_contact_path(supplier) %> |
+    		<%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    		<%= link_to 'Show Purchase', {:controller => "purchases", :action => "index", :contact_id => supplier.id} %> |
+    		<%= link_to 'Add Purchase', new_purchase_path(supplier) %></td>
+      </tr> 
+      <% end %>  
+    </tbody>  
+ 	</table> 
+</ul>
+</div>

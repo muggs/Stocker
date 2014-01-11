@@ -1,0 +1,57 @@
+<div class="container">
+<%= nested_form_for @sale do |f| %>
+<!-- <%= form_for((@sale), :html => { :class => "form-inline"}) do |f| %> -->
+  <div class="field">
+    <%= f.label :contact_id %><br />
+    <%= f.hidden_field :contact_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_id %><br />
+    <%= f.text_field :stock_id %>
+  </div>
+	<div class="field">
+    <%= f.label :piece %><br />
+    <%= f.text_field :piece %>
+  </div>
+	<div class="field">
+    <%= f.label :net_weight %><br />
+    <%= f.text_field :net_weight %>
+  </div>
+	<div class="field">
+    <%= f.label :sale_price %><br />
+    <%= f.text_field :sale_price %>
+  </div>
+	<div class="field">
+    <%= f.label :sale_type %><br />
+    <%= f.select :sale_type, @sale_type %>
+  </div>
+	<div class="field">
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount %>
+  </div>
+	<div class="field">
+    <%= f.label :due_date %><br />
+    <%= f.date_select :due_date %>
+  </div>
+	<div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_field :remarks %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<% if @sale.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+    <ul>
+    <% @sale.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+<%= form_for((@stock), :html => { :class => "form-inline"}) do |f| %>
+  <div class="field">
+    <%= f.label :stone_type %><br />
+    <%= f.select :stone_type, @stone_type %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_type %><br />
+    <%= f.select :sub_type, @sub_type %>
+  </div>
+  <div class="field">
+    <%= f.label :shape %><br />
+    <%= f.select :shape, @shape_type %>
+  </div>
+   <div class="field">
+    <%= f.label :stock_no %><br />
+    <%= f.text_field :stock_no %>
+  </div> 
+	<div class="field">
+    <%= f.label :piece %><br />
+    <%= f.text_field :piece %>
+  </div>
+	<div class="field">
+    <%= f.label :net_weight %><br />
+    <%= f.text_field :net_weight %>
+  </div>
+	<div class="field">
+    <%= f.label :cost_price %><br />
+    <%= f.text_field :cost_price %>
+  </div>
+	<div class="field">
+    <%= f.label :sell_price %><br />
+    <%= f.text_field :sell_price %>
+  </div>
+	<div class="field">
+    <%= f.label :length %><br />
+    <%= f.text_field :length %>
+  </div>
+	<div class="field">
+    <%= f.label :breadth %><br />
+    <%= f.text_field :breadth %>
+  </div>
+	<div class="field">
+    <%= f.label :sarafa_weight %><br />
+    <%= f.text_field :sarafa_weight %>
+  </div>
+	<div class="field">
+    <%= f.label :gross_weight %><br />
+    <%= f.text_field :gross_weight %>
+  </div>
+	<div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_field :remarks %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<% if @stock.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+    <ul>
+    <% @stock.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>

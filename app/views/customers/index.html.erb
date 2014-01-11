@@ -1,0 +1,40 @@
+<div class="container">
+<h2> Customer Dashboard </h2>
+<%= form_tag customers_index_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<ul>
+  <table class="table table-striped">  
+    <thead>  
+      <tr>  
+        <th>Customer ID</th>  
+        <th>Customer Name</th>  
+        <th>Company</th>  
+        <th>City</th>
+        <th>State</th>
+        <th>Country</th>  
+      </tr>  
+    </thead>  
+    <tbody>
+    	<% @customers.each do |customer| %>  
+      <tr>  
+        <td><%= customer.id %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.company %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.state %></td>
+        <td><%= customer.country %></td>
+        <td><%= link_to 'Show', customer %> |
+    		<%= link_to 'Edit', edit_contact_path(customer) %> |
+    		<%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    		<%= link_to 'Show Order', {:controller => "orders", :action => "index", :contact_id => customer.id} %> |
+    		<%= link_to 'Add Order', {:controller => "orders", :action => "new", :contact_id => customer.id} %></td>
+      </tr> 
+      <% end %>  
+    </tbody>  
+ 	</table> 
+</ul>
+</div>

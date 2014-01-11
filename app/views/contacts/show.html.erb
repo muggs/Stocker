@@ -1,0 +1,58 @@
+<div class="container">
+<p>
+  <b>No:</b>
+  <%= @contact.id %>
+</p>
+<p>
+  <b>Type:</b>
+  <%= @contact.contact_type %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @contact.name %>
+</p>
+<p>
+  <b>Company:</b>
+  <%= @contact.company %>
+</p>
+<p>
+  <b>Address:</b>
+  <%= @contact.street_address %>
+</p>
+<p>
+  <b>City:</b>
+  <%= @contact.city %>
+</p>
+<p>
+  <b>State:</b>
+  <%= @contact.state %>
+</p>
+<p>
+  <b>Country:</b>
+  <%= @contact.country %>
+</p>
+<p>
+  <b>Postal Code:</b>
+  <%= @contact.postal_code %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @contact.email %>
+</p>
+<p>
+  <b>Contact Number 1:</b>
+  <%= @contact.contact_number_1 %>
+</p>
+<p>
+  <b>Contact Number 2:</b>
+  <%= @contact.contact_number_2 %>
+</p>
+<p>
+  <b>Fax Number:</b>
+  <%= @contact.fax_number %>
+</p>
+
+<%= link_to "Edit", edit_contact_path(@contact) %> |
+<%= link_to "Delete", contact_path(@contact), :method => :delete, :data => {:confirm => "Are you sure?"} %> |
+<%= link_to "Back", :back %>
+</div>

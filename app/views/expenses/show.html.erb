@@ -1,0 +1,26 @@
+<div class="container">
+<p>
+  <b>Expense Type:</b>
+  <%= @expense.expense_type %>
+</p>
+<p>
+  <b>City:</b>
+  <%= @expense.city %>
+</p>
+<p>
+  <b>State:</b>
+  <%= @expense.state %>
+</p>
+<p>
+  <b>Amount:</b>
+  <%= @expense.amount %>
+</p>
+<p>
+  <b>Remarks:</b>
+  <%= @expense.remarks %>
+</p>
+
+
+<%= link_to "Edit Expense", edit_expense_path(@expense) %>
+<%= link_to "Delete Expense", expense_path(@expense), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+</div>
