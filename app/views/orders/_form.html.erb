@@ -1,32 +1,32 @@
 <div class="container">
 <h2> Order for Customer : <%= @order.contact.name %> </h2>
 <%= nested_form_for((@order), :html => { :class => "form-inline"}) do |f| %>
-  <div class="field">
+  <div class="field row">
     <%= f.hidden_field :contact_id %>
   </div>
-  <div class="field">
-    <%= f.label :order_date %><br />
+  <div class="field row">
+    <%= f.label :order_date, :class => "span2" %>
     <%= f.date_select :order_date %>
-  </div>
-  <div class="field">
-    <%= f.label :order_type %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :order_type, :class => "span2" %>
     <%= f.select :order_type, @order_type %>
-  </div>
-  <div class="field">
-    <%= f.label :due_date %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :due_date, :class => "span2" %>
     <%= f.date_select :due_date %>
-  </div>
-  <div class="field">
-    <%= f.label :discount %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :discount, :class => "span2" %>
     <%= f.text_field :discount %>
-  </div>
- 	<div class="field">
-    <%= f.label :remarks %><br />
+  </div><br />
+ 	<div class="field row">
+    <%= f.label :remarks, :class => "span2" %>
     <%= f.text_field :remarks %>
-  </div>
+  </div><br />
   
   <h3> Details </h3>
-		<table class="table table-striped">  
+		<table class="table table-bordered">  
 			<thead>  
 				<tr>  
 					<th>Stock No</th>
@@ -45,15 +45,16 @@
 						<td><%= item.text_field :net_weight %></td>
 						<td><%= item.text_field :sell_price %></td>
 						<td><%= item.text_field :remarks %></td>	
-						<td><%= item.link_to_remove "Remove Item" %></td>
+						<td><%= item.link_to_remove "Remove Item", :class => "btn btn-primary" %></td>
 					</tr>
 				<% end %>				
 			</tbody>	
 		</table> 
-		<%= f.link_to_add "Add Item", :order_details %>
+		<%= f.link_to_add "Add Item", :order_details, :class => "btn btn-primary" %>
 
 <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= link_to	"Back", :back, :class => "btn btn-primary"%>
   </div>
 <% end %>
 

@@ -1,57 +1,85 @@
 <div class="container">
-<p>
-  <b>Stock ID:</b>
+<h2>Details for Stock # <%= @stock.id %></h2>
+<div class="row">
+	<div class="span2">
+  	<b>Stock ID:</b>
+  </div>	
   <%= @stock.id %>
-</p>
-<p>
-  <b>Stock No:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Stock No:</b>
+  </div>	
   <%= @stock.stock_no %>
-</p>
-<p>
-  <b>Stone Type:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Stone Type:</b>
+  </div>	
   <%= @stock.stone_type %>
-</p>
-<p>
-  <b>Sub Type:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Sub Type:</b>
+  </div>	
   <%= @stock.sub_type %>
-</p>
-<p>
-  <b>Shape:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Shape:</b>
+  </div>	
   <%= @stock.shape %>
-</p>
-<p>
-  <b>Piece:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Piece:</b>
+  </div>	
   <%= @stock.piece %>
-</p>
-<p>
-  <b>Net Weight:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Net Weight:</b>
+  </div>	
   <%= @stock.net_weight %>
-</p>
-<p>
-  <b>Cost Price:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Cost Price:</b>
+  </div>	
   <%= @stock.cost_price %>
-</p>
-<p>
-  <b>Sell Price:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Sell Price:</b>
+  </div>	
   <%= @stock.sell_price %>
-</p>
-<p>
-  <b>Length x Breadth:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Length x Breadth:</b>
+  </div>	
   <%= @stock.length %> x <%= @stock.breadth %>
-</p>
-<p>
-  <b>Sarafa Weight:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Sarafa Weight:</b>
+  </div>	
   <%= @stock.sarafa_weight %>
-</p>
-<p>
-  <b>Gross Weight:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Gross Weight:</b>
+  </div>
   <%= @stock.gross_weight %>
-</p>
-<p>
-  <b>Remarks:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Remarks:</b>
+  </div>	
   <%= @stock.remarks %>
-</p>
+</div>
 
-<%= link_to "Edit Stock", edit_stock_path(@stock) %>
-<%= link_to "Delete Stock", stock_path(@stock), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+<%= link_to "Edit Stock", edit_stock_path(@stock), :class => "btn btn-primary" %>
+<%= link_to "Delete Stock", stock_path(@stock), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-primary" %>
+<%= link_to "Back", :back, :class => "btn btn-primary" %>
 </div>

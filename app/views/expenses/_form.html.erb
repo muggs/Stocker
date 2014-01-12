@@ -1,39 +1,43 @@
 <div class="container">
 <%= form_for((@expense), :html => { :class => "form-inline"}) do |f| %>
-  <div class="field">
-    <%= f.label :expense_type %><br />
-    <%= f.select :expense_type, ["Travel", "Lodge", "Food", "Others"] %>
-  </div>
-  <div class="field">
-    <%= f.label :expense_date %><br />
+  <div class="field row">
+    <%= f.label :expense_type, :class => "span2" %>
+    <%= f.select :expense_type, ["Travel", "Lodge", "Food", "Others"] %>	
+  </div></br>
+  <div class="field row">
+    <%= f.label :expense_date, :class => "span2" %>
     <%= f.date_select :expense_date %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
+  </div></br>
+  <div class="field row">
+    <%= f.label :description, :class => "span2" %>
     <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :vendor_name %><br />
+  </div></br>
+  <div class="field row">
+    <%= f.label :vendor_name, :class => "span2" %>
     <%= f.text_field :vendor_name %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
+  </div></br>
+  <div class="field row">
+    <%= f.label :city, :class => "span2" %>
     <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
+  </div></br>
+  <div class="field row">
+    <%= f.label :state, :class => "span2" %>
     <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br />
+  </div></br>
+  <div class="field row">
+    <%= f.label :amount, :class => "span2" %>
     <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :remarks %><br />
+  </div></br>
+  <div class="field row">
+    <%= f.label :remarks, :class => "span2" %>
     <%= f.text_field :remarks %>
-  </div>
+  </div></br>
+  <div class="field row">
+    <%= f.hidden_field :user_id %>
+  </div></br>
   <div class="actions">
-    <%= f.submit 'Add Expense', :class => 'button'%>
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= link_to	"Back", :back, :class => "btn btn-primary"%>
   </div>
 <% end %>
 <% if @expense.errors.any? %>

@@ -3,52 +3,53 @@
   <div class="field">
     <%= f.hidden_field :contact_type, :value => @contact_type %>
   </div>
-	<div class="field">
-    <%= f.label :name %><br />
+	<div class="field row">
+    <%= f.label :name, :class => "span2" %>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :company, :class => "span2" %>
     <%= f.text_field :company %>
-  </div>
-  <div class="field">
-    <%= f.label :street_address %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :street_address, :class => "span2" %>
     <%= f.text_field :street_address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :city, :class => "span2" %>
     <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :state, :class => "span2" %>
     <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :country, :class => "span2" %>
     <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :postal_code %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :postal_code, :class => "span2" %>
     <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :email, :class => "span2" %>
     <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_number_1 %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :contact_number_1, :class => "span2" %>
     <%= f.text_field :contact_number_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_number_2 %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :contact_number_2, :class => "span2" %>
     <%= f.text_field :contact_number_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :fax_number %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :fax_number, :class => "span2" %>
     <%= f.text_field :fax_number %>
-  </div>
+  </div><br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= link_to	"Back", :back, :class => "btn btn-primary"%>
   </div>
 <% end %>
 

@@ -1,35 +1,50 @@
 <div class="container">
-<p>
-  <b>Order No:</b>
+<h1>Details for Order # <%= @order.id %></h1>
+<div class="row">
+	<div class="span2">
+  	<b>Order No:</b>
+  </div>	
   <%= @order.id %>
-</p>
-<p>
-  <b>Customer:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Customer:</b>
+  </div>	
   <%= @order.contact.name %>
-</p>
-<p>
-  <b>Order Date:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Order Date:</b>
+  </div>
   <%= @order.order_date %>
-</p>
-<p>
-  <b>Due Date:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Due Date:</b>
+  </div>	
   <%= @order.due_date %>
-</p>
-<p>
-  <b>Discount:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Discount:</b>
+  </div>
   <%= @order.discount %>
-</p>
-<p>
-  <b>Order Type:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Order Type:</b>
+  </div>
   <%= @order.order_type %>
-</p>
-<p>
-  <b>Remarks:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Remarks:</b>
+  </div>
   <%= @order.remarks %>
-</p>
+</div>
 
 <h3> Details </h3>
-	<table class="table table-striped">  
+	<table class="table table-bordered">  
 		<thead>  
 			<tr>  
 				<th>Stock No</th>
@@ -52,8 +67,8 @@
 		</tbody>  
 	</table> 
 
-<%= link_to "Edit Order", edit_order_path(@order) %>
-<%= link_to "Delete Order", order_path(@order), :method => :delete, :data => {:confirm => "Are you sure?"} %>
-<%= link_to 'Back', :back %>
-<%= link_to 'Home', pages_index_path %>
+<%= link_to "Edit Order", edit_order_path(@order), :class => "btn btn-primary" %>
+<%= link_to "Delete Order", order_path(@order), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-primary" %>
+<%= link_to 'Back', :back, :class => "btn btn-primary" %>
+<%= link_to 'Home', pages_index_path, :class => "btn btn-primary" %>
 </div>

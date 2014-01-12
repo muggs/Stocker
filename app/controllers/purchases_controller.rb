@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
 	def index
 	 	@purchases = Purchase.where(:contact_id => params[:contact_id])
+	 	@contact = Contact.where(:id => params[:contact_id]).first
 		respond_to do |format|
       format.html # show default view
   		format.json {render :json => @purchases}

@@ -1,59 +1,60 @@
 <div class="container">
 <%= form_for((@stock), :html => { :class => "form-inline"}) do |f| %>
-  <div class="field">
-    <%= f.label :stone_type %><br />
+  <div class="field row">
+    <%= f.label :stone_type, :class => "span2" %>
     <%= f.select :stone_type, @stone_type %>
-  </div>
-  <div class="field">
-    <%= f.label :sub_type %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :sub_type, :class => "span2" %>
     <%= f.select :sub_type, @sub_type %>
-  </div>
-  <div class="field">
-    <%= f.label :shape %><br />
+  </div><br />
+  <div class="field row">
+    <%= f.label :shape, :class => "span2" %>
     <%= f.select :shape, @shape_type %>
-  </div>
-   <div class="field">
-    <%= f.label :stock_no %><br />
+  </div><br />
+   <div class="field row">
+    <%= f.label :stock_no, :class => "span2" %>
     <%= f.text_field :stock_no %>
-  </div> 
-	<div class="field">
-    <%= f.label :piece %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :piece, :class => "span2" %>
     <%= f.text_field :piece %>
-  </div>
-	<div class="field">
-    <%= f.label :net_weight %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :net_weight, :class => "span2" %>
     <%= f.text_field :net_weight %>
-  </div>
-	<div class="field">
-    <%= f.label :cost_price %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :cost_price, :class => "span2" %>
     <%= f.text_field :cost_price %>
-  </div>
-	<div class="field">
-    <%= f.label :sell_price %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :sell_price, :class => "span2" %>
     <%= f.text_field :sell_price %>
-  </div>
-	<div class="field">
-    <%= f.label :length %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :length, :class => "span2" %>
     <%= f.text_field :length %>
-  </div>
-	<div class="field">
-    <%= f.label :breadth %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :breadth, :class => "span2" %>
     <%= f.text_field :breadth %>
-  </div>
-	<div class="field">
-    <%= f.label :sarafa_weight %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :sarafa_weight, :class => "span2" %>
     <%= f.text_field :sarafa_weight %>
-  </div>
-	<div class="field">
-    <%= f.label :gross_weight %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :gross_weight, :class => "span2" %>
     <%= f.text_field :gross_weight %>
-  </div>
-	<div class="field">
-    <%= f.label :remarks %><br />
+  </div><br />
+	<div class="field row">
+    <%= f.label :remarks, :class => "span2" %>
     <%= f.text_field :remarks %>
-  </div>
+  </div><br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
+    <%= link_to	"Back", :back, :class => "btn btn-primary"%>
   </div>
 <% end %>
 

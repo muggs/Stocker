@@ -14,9 +14,6 @@ class ContactsController < ApplicationController
 	
 	def new
 		@contact = Contact.new
-		puts "hello"
-		puts params[:contact_type]
-		puts "hello1"
 		if params[:contact_type]
 			@contact_type = params[:contact_type]
 		else

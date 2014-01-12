@@ -1,64 +1,94 @@
 <div class="container">
-<p>
-  <b>No:</b>
+<div class="row">
+	<div class="span2">
+  	<b>No:</b>
+  </div>	
   <%= @purchase.id %>
-</p>
-<p>
-  <b>Contact:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Contact:</b>
+  </div>
   <%= @purchase.contact.name %>
-</p>
-<p>
-  <b>Stone Type:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Stone Type:</b>
+  </div>
   <%= @purchase.stone_type %>
-</p>
-<p>
-  <b>Sub Type:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Sub Type:</b>
+  </div>
   <%= @purchase.sub_type %>
-</p>
-<p>
-  <b>Shape:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Shape:</b>
+  </div>
   <%= @purchase.shape %>
-</p>
-<p>
-  <b>Piece:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Piece:</b>
+  </div>
   <%= @purchase.piece %>
-</p>
-<p>
-  <b>Net Weight:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Net Weight:</b>
+  </div>
   <%= @purchase.net_weight %>
-</p>
-<p>
-  <b>Purchase Price:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Purchase Price:</b>
+  </div>
   <%= @purchase.purchase_price %>
-</p>
-<p>
-  <b>Length:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Length:</b>
+  </div>
   <%= @purchase.length %>
-</p>
-<p>
-  <b>Breadth:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Breadth:</b>
+  </div>
   <%= @purchase.breadth %>
-</p>
-<p>
-  <b>Sarafa Weight:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Sarafa Weight:</b>
+  </div>
   <%= @purchase.sarafa_weight %>
-</p>
-<p>
-  <b>Gross Weight:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Gross Weight:</b>
+  </div>
   <%= @purchase.gross_weight %>
-</p>
-<p>
-  <b>Discount:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Discount:</b>
+  </div>
   <%= @purchase.discount %>
-</p>
-<p>
-  <b>Due Date:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Due Date:</b>
+  </div>
   <%= @purchase.due_date %>
-</p>
-<p>
-  <b>Remarks:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Remarks:</b>
+  </div>
   <%= @purchase.remarks %>
-</p>
+</div>
 
 <%= link_to "Edit Purchase", edit_purchase_path(@purchase) %>
 <%= link_to "Delete Purchase", purchase_path(@purchase), :method => :delete, :data => {:confirm => "Are you sure?"} %>

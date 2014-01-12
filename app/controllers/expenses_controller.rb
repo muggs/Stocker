@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
 	end
 	
 	def new
-		@expense = Expense.new
+		@expense = Expense.new(:user_id => current_user.id)
 	end
 
 	def show

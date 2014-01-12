@@ -1,26 +1,61 @@
 <div class="container">
-<p>
-  <b>Expense Type:</b>
+<h1>Details for Expense # <%= @expense.id %></h1>
+<div class="row">
+	<div class="span2">
+  	<b>Expense Date</b>
+  </div>	
+  <%= @expense.expense_date %>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>User</b>
+  </div>	
+  <%= @expense.user.username%>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Expense Type</b>
+  </div>	
   <%= @expense.expense_type %>
-</p>
-<p>
-  <b>City:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Description</b>
+  </div>	
+  <%= @expense.description %>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Vendor</b>
+  </div>	
+  <%= @expense.vendor_name %>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>City</b>
+  </div>	
   <%= @expense.city %>
-</p>
-<p>
-  <b>State:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>State</b>
+  </div>	
   <%= @expense.state %>
-</p>
-<p>
-  <b>Amount:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Amount</b>
+  </div>	
   <%= @expense.amount %>
-</p>
-<p>
-  <b>Remarks:</b>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Remarks</b>
+  </div>	
   <%= @expense.remarks %>
-</p>
+</div>
 
-
-<%= link_to "Edit Expense", edit_expense_path(@expense) %>
-<%= link_to "Delete Expense", expense_path(@expense), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+<%= link_to "Edit Expense", edit_expense_path(@expense), :class => "btn btn-primary" %>
+<%= link_to "Delete Expense", expense_path(@expense), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-primary" %>
+<%= link_to "Back", :back, :class => "btn btn-primary" %>
 </div>
