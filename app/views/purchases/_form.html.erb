@@ -4,52 +4,66 @@
   <%= f.hidden_field :contact_id %>
   </div>
   <div class="field row">
+    <%= f.label :stock_type, :class => "span2" %>
+    <%= f.select :stock_type, @stock_type %>
+  </div></br>
+  <div class="field row">
     <%= f.label :stone_type, :class => "span2" %>
     <%= f.select :stone_type, @stone_type %>
   </div></br>
   <div class="field row">
-    <%= f.label :sub_type, :class => "span2" %>
-    <%= f.select :sub_type, @sub_type %>
+    <%= f.label :stone_type_description, :class => "span2" %>
+    <%= f.text_field :stone_type_description %>
   </div></br>
+  <div class="field row">
+    <%= f.label :size, :class => "span2" %>
+    <%= f.text_field :size %>
+  </div></br>  
   <div class="field row">
     <%= f.label :shape, :class => "span2" %>
     <%= f.select :shape, @shape_type %>
   </div></br>
 	<div class="field row">
-    <%= f.label :piece, :class => "span2" %>
+    <%= f.label "Piece / Line", :class => "span2" %>
     <%= f.text_field :piece %>
   </div></br>
 	<div class="field row">
+    <%= f.label :purchase_price_per_ct, :class => "span2" %>
+    <%= f.text_field :purchase_price_per_ct, :class => "calc" %>
+  </div></br>
+  <div class="Beads">
+		<div class="field row">
+			<%= f.label :gross_weight, :class => "span2" %>
+			<%= f.text_field :gross_weight%>
+		</div></br>  
+		<div class="field row">
+			<%= f.label :sarafa_weight, :class => "span2" %>
+			<%= f.text_field :sarafa_weight %>
+		</div></br>
+	</div>
+  <div class="field row">
     <%= f.label :net_weight, :class => "span2" %>
-    <%= f.text_field :net_weight %>
+    <%= f.text_field :net_weight, :class => "calc"%>
   </div></br>
-	<div class="field row">
-    <%= f.label :purchase_price, :class => "span2" %>
-    <%= f.text_field :purchase_price %>
-  </div></br>
-	<div class="field row">
-    <%= f.label :length, :class => "span2" %>
-    <%= f.text_field :length %>
-  </div></br>
-	<div class="field row">
-    <%= f.label :breadth, :class => "span2" %>
-    <%= f.text_field :breadth %>
-  </div></br>
-	<div class="field row">
-    <%= f.label :sarafa_weight, :class => "span2" %>
-    <%= f.text_field :sarafa_weight %>
-  </div></br>
-	<div class="field row">
-    <%= f.label :gross_weight, :class => "span2" %>
-    <%= f.text_field :gross_weight %>
-  </div></br>
+  <div class="field row">
+    <label class="span2"> Total Amount (Before Discount)</label>
+    <input id="tot_amt" disabled="disabled">
+  </div></br>  
 	<div class="field row">
     <%= f.label :discount, :class => "span2" %>
-    <%= f.text_field :discount %>
+    <%= f.text_field :discount, :class => "calc"%>
   </div></br>
+  <div class="field row">
+    <label class="span2"> Net Amount (After Discount)</label>
+    <input id="net_amt" disabled="disabled">
+  </div></br>  
 	<div class="field row">
     <%= f.label :due_date, :class => "span2" %>
     <%= f.date_select :due_date %>
+  </div></br>
+  <div class="field row">
+    <%= f.label :broker_name, :class => "span2" %>
+    <%= f.text_field :broker_name %>
   </div></br>
 	<div class="field row">
     <%= f.label :remarks, :class => "span2" %>
@@ -58,6 +72,7 @@
   <div class="actions row">
     <%= f.submit :class => "btn btn-primary" %>
     <%= link_to 'Back', purchases_path, :class => "btn btn-primary" %>
+    <%= link_to 'Home', pages_index_path, :class => "btn btn-primary" %>
   </div>
 <% end %>
 
@@ -74,3 +89,94 @@
   </div>
 <% end %>
 </div>
+
+<script>
+
+	var func_calc_net_weight = function(){
+		var gw=0, sw=0;
+		
+		if (! isNaN($('#purchase_gross_weight').val()))
+		{
+			gw=Number($('#purchase_gross_weight').val());
+		}
+		
+		if (! isNaN($('#purchase_sarafa_weight').val()))
+		{
+			sw=Number($('#purchase_sarafa_weight').val());
+		}
+		
+		$("#purchase_net_weight").val(gw - sw);
+		func_calc_total_amount();
+	};
+	
+	
+	var func_calc_total_amount = function(){
+		var nw=0, p=0, d=0;
+		
+		if (! isNaN($('#purchase_net_weight').val()))
+		{
+			nw=Number($('#purchase_net_weight').val());
+		}
+		
+		if (! isNaN($('#purchase_purchase_price_per_ct').val()))
+		{
+			p=Number($('#purchase_purchase_price_per_ct').val());
+		}
+		
+		if (! isNaN($('#purchase_discount').val()))
+		{
+			d=Number($('#purchase_discount').val());
+		}
+		
+		$("#tot_amt").val(nw*p);
+		$("#net_amt").val(nw*p*(100-d)/100);
+	};
+	
+	
+	$('#purchase_stock_type').bind
+	(
+		'change',
+		function()
+		{
+			if ($('#purchase_stock_type').val() == "Beads")
+			{
+				$('.Beads').show();
+				$("#purchase_net_weight").attr("disabled", true);
+			}
+			else
+			{
+				$('.Beads').hide();
+				$("#purchase_net_weight").attr("disabled", false);
+			}
+			$("#purchase_gross_weight").val(0);
+			$("#purchase_sarafa_weight").val(0);
+			func_calc_net_weight();
+		}
+	).change();
+	
+	
+	$('#purchase_gross_weight').bind
+	(
+		'change',func_calc_net_weight
+	).change();
+	
+	$('#purchase_sarafa_weight').bind
+	(
+		'change',func_calc_net_weight
+	).change();
+	
+	$('#purchase_purchase_price_per_ct').bind
+	(
+		'change',func_calc_total_amount
+	).change();
+	
+	$('#purchase_net_weight').bind
+	(
+		'change',func_calc_total_amount
+	).change();
+	
+		$('#purchase_discount').bind
+	(
+		'change',func_calc_total_amount
+	).change();
+</script>

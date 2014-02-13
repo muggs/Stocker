@@ -7,9 +7,15 @@
 </div>
 <div class="row">
 	<div class="span2">
-  	<b>Contact:</b>
+  	<b>Supplier:</b>
   </div>
   <%= @purchase.contact.name %>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Stock Type:</b>
+  </div>
+  <%= @purchase.stock_type %>
 </div>
 <div class="row">
 	<div class="span2">
@@ -19,9 +25,9 @@
 </div>
 <div class="row">
 	<div class="span2">
-  	<b>Sub Type:</b>
+  	<b>Stone Type Description:</b>
   </div>
-  <%= @purchase.sub_type %>
+  <%= @purchase.stone_type_description %>
 </div>
 <div class="row">
 	<div class="span2">
@@ -31,7 +37,13 @@
 </div>
 <div class="row">
 	<div class="span2">
-  	<b>Piece:</b>
+  	<b>Size:</b>
+  </div>
+  <%= @purchase.size %>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Pieces / Lines:</b>
   </div>
   <%= @purchase.piece %>
 </div>
@@ -43,21 +55,9 @@
 </div>
 <div class="row">
 	<div class="span2">
-  	<b>Purchase Price:</b>
+  	<b>Purchase Price Per ct:</b>
   </div>
-  <%= @purchase.purchase_price %>
-</div>
-<div class="row">
-	<div class="span2">
-  	<b>Length:</b>
-  </div>
-  <%= @purchase.length %>
-</div>
-<div class="row">
-	<div class="span2">
-  	<b>Breadth:</b>
-  </div>
-  <%= @purchase.breadth %>
+  <%= @purchase.purchase_price_per_ct %>
 </div>
 <div class="row">
 	<div class="span2">
@@ -79,9 +79,21 @@
 </div>
 <div class="row">
 	<div class="span2">
+  	<b>Net Amount:</b>
+  </div>
+  <%= @purchase.calculate_net_amount %>
+</div>
+<div class="row">
+	<div class="span2">
   	<b>Due Date:</b>
   </div>
   <%= @purchase.due_date %>
+</div>
+<div class="row">
+	<div class="span2">
+  	<b>Broker Name:</b>
+  </div>
+  <%= @purchase.broker_name %>
 </div>
 <div class="row">
 	<div class="span2">
@@ -90,6 +102,8 @@
   <%= @purchase.remarks %>
 </div>
 
-<%= link_to "Edit Purchase", edit_purchase_path(@purchase) %>
-<%= link_to "Delete Purchase", purchase_path(@purchase), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+<%= link_to "Edit Purchase", edit_purchase_path(@purchase), :class => "btn btn-primary"  %>
+<%= link_to "Delete Purchase", purchase_path(@purchase), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-primary"  %>
+<%= link_to 'Back', :back, :class => "btn btn-primary" %>
+<%= link_to 'Home', pages_index_path, :class => "btn btn-primary" %>
 </div>

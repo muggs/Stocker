@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
 	 	@orders = Order.where(:contact_id => params[:contact_id])
 	 	@contact = Contact.where(:id => params[:contact_id]).first

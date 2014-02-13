@@ -58,4 +58,6 @@
 <%= link_to "Edit Expense", edit_expense_path(@expense), :class => "btn btn-primary" %>
 <%= link_to "Delete Expense", expense_path(@expense), :method => :delete, :data => {:confirm => "Are you sure?"}, :class => "btn btn-primary" %>
 <%= link_to "Back", :back, :class => "btn btn-primary" %>
+<%= link_to "Search", expenses_path, :class => "btn btn-primary" %>
+<%= link_to "Home", pages_index_path, :class => "btn btn-primary" %>
 </div>

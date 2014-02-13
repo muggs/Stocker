@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140112053731) do
+ActiveRecord::Schema.define(:version => 20140209231607) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -80,21 +80,22 @@ ActiveRecord::Schema.define(:version => 20140112053731) do
 
   create_table "purchases", :force => true do |t|
     t.string   "stone_type"
-    t.string   "sub_type"
+    t.string   "stock_type"
     t.string   "shape"
     t.integer  "piece"
     t.float    "net_weight"
-    t.float    "purchase_price"
-    t.float    "length"
-    t.float    "breadth"
+    t.float    "purchase_price_per_ct"
     t.float    "sarafa_weight"
     t.float    "gross_weight"
     t.float    "discount"
     t.date     "due_date"
     t.string   "remarks"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.integer  "contact_id"
+    t.string   "broker_name"
+    t.string   "stone_type_description"
+    t.string   "size"
   end
 
   add_index "purchases", ["contact_id"], :name => "index_purchases_on_contact_id"

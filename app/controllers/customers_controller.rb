@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+	before_filter :authenticate_user!
+	
   def index
   	if params[:search]
  			@customers = Contact.where(:contact_type => "Customer").where('name LIKE ?', "%#{params[:search]}%")

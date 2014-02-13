@@ -1,4 +1,6 @@
 class SalesController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
 	 	@sales = Sale.where(:contact_id => params[:contact_id])
 		respond_to do |format|

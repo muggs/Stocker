@@ -1,4 +1,6 @@
 class PurchaseStocksController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def show
 		@purchase = Purchase.where(:id => params[:id]).first
 		@purchase_stock = PurchaseStock.where(:purchase_id => @purchase.id) 

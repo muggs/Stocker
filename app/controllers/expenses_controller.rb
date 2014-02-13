@@ -1,6 +1,8 @@
 class ExpensesController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
-	 	@expenses = Expense.all
+	 	@expenses = Expense.where(:user_id => current_user.id).order("expense_date desc")
 		respond_to do |format|
       format.html # show default view
   		format.json {render :json => @expenses}

@@ -1,4 +1,6 @@
 class PurchasesController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
 	 	@purchases = Purchase.where(:contact_id => params[:contact_id])
 	 	@contact = Contact.where(:id => params[:contact_id]).first
@@ -23,8 +25,8 @@ class PurchasesController < ApplicationController
 	
 	def new
 		@purchase = Purchase.new(contact_id: params[:format])
-		@stone_type = ["Emerald","Ruby","Saffire","Diamond","Topaz","Pearl","Garnate","Others"]
-		@sub_type = ["Ring Size","Setting Size","Beads"]
+		@stone_type = ["Emerald","Ruby","Yellow Saffire","Blue Saffire","White Saffire","Coral","Hazonite","Pearl","Cat's Eye","Others"]
+		@stock_type = ["Ring Size","Setting Size","Beads"]
 		@shape_type = ["Round", "Oval", "Star", "Square"]
 	end
 
@@ -41,8 +43,8 @@ class PurchasesController < ApplicationController
 
 	def edit
 		@purchase = Purchase.where(:id => params[:id]).first
-		@stone_type = ["Emerald","Ruby","Saffire","Diamond","Topaz","Pearl","Garnate","Others"]
-		@sub_type = ["Ring Size","Setting Size","Beads"]
+		@stone_type = ["Emerald","Ruby","Yellow Saffire","Blue Saffire","White Saffire","Coral","Hazonite","Pearl","Cat's Eye","Others"]
+		@stock_type = ["Ring Size","Setting Size","Beads"]
 		@shape_type = ["Round", "Oval", "Star", "Square"]
 	end
 
@@ -66,7 +68,7 @@ class PurchasesController < ApplicationController
 		@purchase.destroy
 
    		respond_to do |format|
-    		format.html { redirect_to purchases_url }
+    		format.html { redirect_to :back }
     		format.json { head :no_content }
   		end
 	end

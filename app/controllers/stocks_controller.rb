@@ -1,4 +1,6 @@
 class StocksController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
 	 	@stocks = Stock.all
 		respond_to do |format|

@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+	before_filter :authenticate_user!	
+	
 	def create
 		@contact = Contact.new(params[:contact])
 		respond_to do |format|
