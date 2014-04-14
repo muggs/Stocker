@@ -3,6 +3,7 @@ class ContactsController < ApplicationController
 	
 	def create
 		@contact = Contact.new(params[:contact])
+		@contact_type = @contact.contact_type
 		respond_to do |format|
 			if (@contact.save)
       	format.html {redirect_to @contact, :notice => 'Contact was successfully added.' }

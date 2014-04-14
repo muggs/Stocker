@@ -7,8 +7,9 @@ gem 'rails', '3.2.6'
 
 group :development do
 	gem 'sqlite3'
+	gem 'simple_form'
 end
-
+gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,6 +27,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'client_side_validations'
 gem 'nested_form', "~> 0.3.2"
 gem 'devise'
 # To use ActiveModel has_secure_password

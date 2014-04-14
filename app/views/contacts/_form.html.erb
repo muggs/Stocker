@@ -1,5 +1,5 @@
 <div class="container">
-<%= form_for((@contact), :html => { :class => "form-inline"}) do |f| %>
+<%= form_for((@contact),:validate => true, :html => { :class => "form-inline"}) do |f| %>
   <div class="field">
     <%= f.hidden_field :contact_type, :value => @contact_type %>
   </div>
@@ -54,16 +54,4 @@
   </div>
 <% end %>
 
-
-<% if @contact.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-    <ul>
-    <% @contact.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
 </div>
